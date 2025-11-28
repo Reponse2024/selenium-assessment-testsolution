@@ -27,12 +27,14 @@ public class HomePage {
         driver.findElement(readMoreLink).click();
         return new SeleniumTrainingPage(driver);
     }
-    public AlertsPage clickJavaScriptAlerts(){
+    public AlertsPage clickAlerts(){
         clickLink("Click me");
         return new AlertsPage (driver);
     }
-
-
+    public KeysPage clickKeyPresses(){
+        clickLink("Key Presses");
+        return new KeysPage(driver);
+    }
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }

@@ -1,4 +1,21 @@
 package pages;
 
-public class KeysPage {
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+
+public class KeysPage{
+    private WebDriver driver;
+    private By inputField = By.id("target");
+    private By resultText = By.id("result");
+
+    public KeysPage(WebDriver driver){
+        this.driver=driver;
+    }
+    public void enterText(String text){
+        driver.findElement(inputField).sendKeys(text);
+    }
+    public String getResult(){
+        return driver.findElement(resultText).getText();
+    }
 }

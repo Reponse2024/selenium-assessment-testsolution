@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 public class AlertsTest extends BaseTests {
     @Test
     public void testAcceptAlert() {
-        var alertsPage = homePage.clickJavaScriptAlerts();
+        var alertsPage = homePage.clickAlerts();
         alertsPage.triggerAlert();
         alertsPage.alert_clickToAccept();
     }

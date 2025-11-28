@@ -7,7 +7,7 @@ public class AlertsPage {
     private WebDriver driver;
     private By triggerAlertButton = By.id("alertButton");
 
-    public AlertsPage(WebDriver driverAlert) { //I can even call it driver, instead of driverAlert
+    public AlertsPage(WebDriver driverAlert) {
         this.driver = driverAlert;
     }
     public void triggerAlert() {
