@@ -8,14 +8,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+//import utils.WindowHepler;
 
 public class BaseTests {
     protected HomePage homePage;
     private WebDriver driver = new ChromeDriver();
+    //protected WindowHepler windowHepler;
 
         @BeforeClass
         public void setUp() {
-
             System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
             goHome();
             homePage = new HomePage(driver);
@@ -24,7 +25,6 @@ public class BaseTests {
         public void goHome(){
             driver.get("https://toolsqa.com/");
             //homePage = new HomePage(driver);
-
         }
         @AfterClass
         public void tearDown() {
@@ -35,8 +35,5 @@ public class BaseTests {
         options.addArguments("disable-infobars");
         return options;
     }
-
-//    private void clickLink(String linkText){
-//        driver.findElement(By.linkText(linkText)).click();
-//    }
+        //this.windowHepler= new WindowHelper(driver);
 }

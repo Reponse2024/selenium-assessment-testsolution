@@ -2,6 +2,7 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class WindowHepler {
@@ -18,6 +19,25 @@ public class WindowHepler {
                break;
            }
        }
-
    }
+    public String getCurrentWindowHandle() {
+        return driver.getWindowHandle();
+    }
+    public void switchToWindow(String originalTab) {
+        driver.switchTo().window(originalTab);
+    }
+    public ArrayList<String> getAllWindowHandles() {
+        Set<String> windowHandles = driver.getWindowHandles();
+        return new ArrayList<>(windowHandles);
+    }
+    public void switchToWindowByIndex(int index) {
+        ArrayList<String> windows = getAllWindowHandles();
+        if (index < windows.size()) {
+            driver.switchTo().window(windows.get(index));
+        }
+    }
+    public void closeCurrentAndSwitchTo(String originalTab) {
+        driver.close();
+        driver.switchTo().window(originalTab);
+    }
 }
