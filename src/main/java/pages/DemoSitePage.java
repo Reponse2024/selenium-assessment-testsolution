@@ -21,4 +21,8 @@ public class DemoSitePage extends BasePage {
         clickElement(alertsFramesWindowsLink);
         return new AlertsCategoryPage(driver);
     }
+
+    private void clickElement(WebElement alertsFramesWindowsLink) {
+
+    }
 }

@@ -1,5 +1,6 @@
 package base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,24 +8,22 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+
 import pages.HomePage;
-//import utils.WindowHepler;
 
 public class BaseTests {
     protected HomePage homePage;
     private WebDriver driver = new ChromeDriver();
-    //protected WindowHepler windowHepler;
 
         @BeforeClass
         public void setUp() {
-            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+            WebDriverManager.chromedriver().setup();
             goHome();
             homePage = new HomePage(driver);
         }
         @BeforeMethod
         public void goHome(){
             driver.get("https://toolsqa.com/");
-            //homePage = new HomePage(driver);
         }
         @AfterClass
         public void tearDown() {
@@ -35,5 +34,4 @@ public class BaseTests {
         options.addArguments("disable-infobars");
         return options;
     }
-        //this.windowHepler= new WindowHelper(driver);
 }

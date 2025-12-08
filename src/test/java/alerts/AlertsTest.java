@@ -1,10 +1,12 @@
 package alerts;
 
 import base.BaseTests;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
-import utils.DriverManager;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class AlertsTest extends BaseTests {
     /**
@@ -17,8 +19,8 @@ public class AlertsTest extends BaseTests {
      Verify we're on Alerts page
      */
     @Test(description = "Navigate from Homepage to Alerts page through demo site")
-    public void testNavigationToAlertsPage() {
-        HomePage homePage = new HomePage(DriverManager.getDriver());
+    public void testNavigationToAlertsPage() throws SQLException {
+        HomePage homePage = new HomePage((WebDriver) DriverManager.getDriver("https://demoqa.com/"));
         DemoSitePage demoSitePage = homePage.clickDemoSiteLink();
         AlertsCategoryPage alertsCategoryPage =
                 demoSitePage.clickAlertsFramesWindowsLink();
