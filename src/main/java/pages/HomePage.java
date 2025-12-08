@@ -51,7 +51,6 @@ public class HomePage extends BasePage{
         return new DemoSitePage(driver);
     }
 
-
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
