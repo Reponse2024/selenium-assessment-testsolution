@@ -12,11 +12,6 @@ public class DemoSitePage extends BasePage {
     public DemoSitePage(WebDriver driver) {
         super(driver);
     }
-
-    /**
-     * Clicks "Alerts, Frames & Windows" link
-     * @return AlertsCategoryPage object
-     */
     public AlertsCategoryPage clickAlertsFramesWindowsLink() {
         clickElement(alertsFramesWindowsLink);
         return new AlertsCategoryPage(driver);

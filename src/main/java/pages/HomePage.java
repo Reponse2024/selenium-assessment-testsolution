@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.WindowHelper;
 
 public class HomePage extends BasePage{
     private WebDriver driver;
@@ -40,14 +41,14 @@ public class HomePage extends BasePage{
     }
 
     public DemoSitePage clickDemoSiteLink() {
-        String originalWindow = windowHelper.getCurrentWindowHandle();
+        String originalWindow = WindowHelper.getCurrentWindowHandle();
         clickLink("DEMO SITE");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        windowHelper.switchToNewWindow(originalWindow);
+        WindowHelper.switchToNewWindow(originalWindow);
         return new DemoSitePage(driver);
     }
 
