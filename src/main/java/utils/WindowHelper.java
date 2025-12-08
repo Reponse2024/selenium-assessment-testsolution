@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class WindowHepler {
-    public WebDriver driver;
-    public WindowHepler (WebDriver driver){
+public class WindowHelper {
+    public static WebDriver driver;
+    public WindowHelper (WebDriver driver){
         this.driver=driver;
     }
-   public void switchToNewTab(String originalTab){
+
+    public static void switchToNewTab(String originalTab){
        Set<String> allTabs = driver.getWindowHandles();
 
        for(String tab : allTabs){
@@ -20,7 +21,7 @@ public class WindowHepler {
            }
        }
    }
-    public String getCurrentWindowHandle() {
+    public static String getCurrentWindowHandle() {
         return driver.getWindowHandle();
     }
     public void switchToWindow(String originalTab) {

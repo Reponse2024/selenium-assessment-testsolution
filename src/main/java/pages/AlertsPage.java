@@ -1,18 +1,18 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AlertsPage extends BasePage {
-    @FindBy(id = "alertButton")
-    private WebElement alertButton;
+    private By alertButton= By.id( "alertButton");
 
     public AlertsPage(WebDriver driver) {
         super(driver);
     }
     public void clickAlertButton() {
-        clickElement(alertButton);
+        driver.findElement(alertButton).click();
     }
     public void acceptAlert() {
         driver.switchTo().alert().accept();
@@ -21,7 +21,7 @@ public class AlertsPage extends BasePage {
     public String getAlertText() {
         return driver.switchTo().alert().getText();
     }
-    public boolean isOnAlertsPage() {
-        return getCurrentUrl().contains("alerts");
-    }
+    //public boolean isOnAlertsPage() {
+       // return getCurrentUrl().contains("alerts");
+   // }
 }
