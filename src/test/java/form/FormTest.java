@@ -4,9 +4,9 @@ import base.BaseTests;
 import org.testng.annotations.Test;
 import pages.FormPage;
 
-public class FormPageTest extends BaseTests {
+public class FormTest extends BaseTests {
     @Test
-    public void testEnrollYourselfLink() {
+    public void testEnrollYourselfLink(){
         FormPage formsPage = homePage.clickEnrollYourself();
 
         formsPage.fillFirstName("Reponse Irakoze");

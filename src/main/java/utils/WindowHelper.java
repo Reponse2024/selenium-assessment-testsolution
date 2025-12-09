@@ -11,7 +11,7 @@ public class WindowHelper {
         this.driver=driver;
     }
 
-    public static void switchToNewTab(String originalTab){
+    public void switchToNewTab(String originalTab){
        Set<String> allTabs = driver.getWindowHandles();
 
        for(String tab : allTabs){
@@ -24,7 +24,8 @@ public class WindowHelper {
     public static String getCurrentWindowHandle() {
         return driver.getWindowHandle();
     }
-    public void switchToWindow(String originalTab) {
+    public static
+    void switchToNewWindow(String originalTab) {
         driver.switchTo().window(originalTab);
     }
     public ArrayList<String> getAllWindowHandles() {
