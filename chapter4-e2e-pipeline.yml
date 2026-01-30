@@ -22,37 +22,37 @@ jobs:
         run: mvn test
         
   analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
+      name: Analyze
+      runs-on: ubuntu-latest
+      permissions:
+        actions: read
+        contents: read
+        security-events: write
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'javascript', 'java' ]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+      strategy:
+        fail-fast: false
+        matrix:
+          language: [ 'javascript', 'java' ]
+          # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-      with:
-        category: "/language:${{matrix.language}}"
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:${{matrix.language}}"
 
-cleanup:
+  cleanup:
     needs: [build]
     runs-on: ubuntu-latest
     environment: UAT
@@ -69,7 +69,7 @@ cleanup:
             rm -rf ./deployment/*
             rm -rf ${{ vars.UAT_TOMCAT }}/digi*
 
-deploy: 
+  deploy: 
     needs: [cleanup]
     runs-on: ubuntu-latest
     environment: UAT
