@@ -6,8 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FormPage {
     private WebDriver driver;
-
-    public FormPage(WebDriver driver) {
+    public FormPage(WebDriver driver){
         this.driver = driver;
     }
     private By firstNameField = By.name("firstName");
@@ -20,40 +19,40 @@ public class FormPage {
     private By captchaField = By.id("code");
     private By sendButton = By.cssSelector("button.btn.btn-primary");
 
-    public void fillFirstName(String firstName) {
+    public void fillFirstName(String firstName){
         driver.findElement(firstNameField).sendKeys(firstName);
     }
 
-    public void fillLastName(String lastName) {
+    public void fillLastName(String lastName){
         driver.findElement(lastNameField).sendKeys(lastName);
     }
 
-    public void fillEmail(String email) {
+    public void fillEmail(String email){
         driver.findElement(emailField).sendKeys(email);
     }
 
-    public void fillMobile(String mobile) {
+    public void fillMobile(String mobile){
         driver.findElement(mobileField).sendKeys(mobile);
     }
 
-    public void selectCountry(String country) {
+    public void selectCountry(String country){
         Select dropdown = new Select(driver.findElement(countryDropdown));
         dropdown.selectByVisibleText(country);
     }
 
-    public void fillCity(String city) {
+    public void fillCity(String city){
         driver.findElement(cityField).sendKeys(city);
     }
 
-    public void fillMessage(String message) {
+    public void fillMessage(String message){
         driver.findElement(messageField).sendKeys(message);
     }
 
-    public void fillCaptcha(String captchaCode) {
+    public void fillCaptcha(String captchaCode){
         driver.findElement(captchaField).sendKeys(captchaCode);
     }
 
-    public void clickSend() {
+    public void clickSend(){
         driver.findElement(sendButton).click();
     }
 }

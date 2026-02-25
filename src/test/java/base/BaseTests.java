@@ -1,7 +1,6 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,8 +12,7 @@ import pages.HomePage;
 
 public class BaseTests {
     protected HomePage homePage;
-    private WebDriver driver = new ChromeDriver();
-
+    protected WebDriver driver = new ChromeDriver();
         @BeforeClass
         public void setUp() {
             WebDriverManager.chromedriver().setup();
@@ -24,6 +22,7 @@ public class BaseTests {
         @BeforeMethod
         public void goHome(){
             driver.get("https://toolsqa.com/");
+            //driver.get("https://demoqa.com/");
         }
         @AfterClass
         public void tearDown() {
